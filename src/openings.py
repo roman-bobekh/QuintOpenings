@@ -77,6 +77,8 @@ filePath = "D:/Coding/Lichess games/lichess_games_may_2017.pgn"
 games = open(filePath)
 totalGames = 0
 while (game := chess.pgn.read_game(games)) != None and openings.games < gamesCount:
+    totalGames += 1
+
     # get elo and time control from pgn
     whiteElo = game.headers["WhiteElo"]
     blackElo = game.headers["BlackElo"]
@@ -107,13 +109,11 @@ while (game := chess.pgn.read_game(games)) != None and openings.games < gamesCou
 
         node.games += 1
         ply += 1  
-                
+
     # print current progress every 100 games
     if openings.games % 100 == 0:
         print("Games added: " + str(openings.games))
         print("Total games: " + str(totalGames))
-            
-    totalGames += 1
 
 games.close()
 
@@ -121,5 +121,5 @@ games.close()
 for i in range(1, 101):
     gameThreshold = i * 0.0001
     openings.keepRelevant()
-    openings.saveAs("opening_database_threshold_" + str(i) + ".od")
+    openings.saveAs("databases/opening_database_threshold_" + str(i) + ".od")
 
