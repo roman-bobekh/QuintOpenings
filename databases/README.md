@@ -1,0 +1,1 @@
+databases/ is a folder for storing databases created by QuintOpenings.

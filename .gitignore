@@ -1,0 +1,11 @@
+# Ignore Python build files
+__pycache__/
+
+# Ignore all database files
+databases/*
+
+# Ignore files that should be kept while switching branches
+share/*
+
+# Don't ignore READMEs
+!README.md
